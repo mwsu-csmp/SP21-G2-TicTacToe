@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    // initializes scenes
     private Scene startScene;
     private Scene gameScene;
 
