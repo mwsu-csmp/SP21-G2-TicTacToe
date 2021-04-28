@@ -7,17 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.input.MouseButton;
 
 
 public class Main extends Application {
 
     private static GameBoard gameBoard;
     private static StartBoard startBoard;
-    private int turns;
+    private static EndBoard endBoard;
 
 
     public static void main(String[] args) {
         launch(args);
+
     }
 
     @Override

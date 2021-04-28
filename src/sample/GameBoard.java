@@ -15,11 +15,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-public class GameBoard extends BorderPane {
+public class GameBoard {
     private Scene gameScene;
     private static int turns = 0;
     private static char board[][] = new char[3][3];
     private static boolean gameWon = false;
+    private EndBoard endBoard;
 
 
     public GameBoard() throws FileNotFoundException {
@@ -127,12 +128,10 @@ public class GameBoard extends BorderPane {
                         board[0][0] = 'o';
                     }
                     checkWinStatus();
-                    System.out.println(gameWon);
                     turns ++;
-                    System.out.println(turns);
-                }
+                    }
 
-            }
+                }
         });
 
         root2.setOnMouseClicked(event->{
@@ -141,144 +140,138 @@ public class GameBoard extends BorderPane {
                     if (turns == 0 || turns % 2 == 0) {
                         imageView2.setImage(xImage);
                         board[0][1] = 'x';
-                    } else {
+                    }else {
                         imageView2.setImage(oImage);
                         board[0][1] = 'o';
                     }
                     checkWinStatus();
-                    System.out.println(gameWon);
                     turns++;
-                    }
                 }
-            });
+            }
+        });
 
-            root3.setOnMouseClicked(event->{
-                if(event.getButton() == MouseButton.PRIMARY && gameWon == false){
-                    if(imageView3.getImage() == blank){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView3.setImage(xImage);
-                            board[0][2] = 'x';
-                        }else{
-                            imageView3.setImage(oImage);
-                            board[0][2] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root3.setOnMouseClicked(event->{
+            if(event.getButton() == MouseButton.PRIMARY && gameWon == false){
+                if(imageView3.getImage() == blank){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView3.setImage(xImage);
+                        board[0][2] = 'x';
+                    }else{
+                        imageView3.setImage(oImage);
+                        board[0][2] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
+            }
+        });
 
-            root4.setOnMouseClicked(event->{
-                if(imageView4.getImage() == blank && gameWon == false) {
-                    if(event.getButton() == MouseButton.PRIMARY){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView4.setImage(xImage);
-                            board[1][0] = 'x';
-                        }else{
-                            imageView4.setImage(oImage);
-                            board[1][0] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root4.setOnMouseClicked(event->{
+            if(imageView4.getImage() == blank && gameWon == false) {
+                if(event.getButton() == MouseButton.PRIMARY){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView4.setImage(xImage);
+                        board[1][0] = 'x';
+                    }else{
+                        imageView4.setImage(oImage);
+                        board[1][0] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
+            }
+        });
 
-            root5.setOnMouseClicked(event->{
-                if(imageView5.getImage() == blank && gameWon == false){
-                    if(event.getButton() == MouseButton.PRIMARY){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView5.setImage(xImage);
-                            board[1][1] = 'x';
-                        }else{
-                            imageView5.setImage(oImage);
-                            board[1][1] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root5.setOnMouseClicked(event->{
+            if(imageView5.getImage() == blank && gameWon == false){
+                if(event.getButton() == MouseButton.PRIMARY){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView5.setImage(xImage);
+                        board[1][1] = 'x';
+                    }else{
+                        imageView5.setImage(oImage);
+                        board[1][1] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
+            }
+        });
 
-            root6.setOnMouseClicked(event->{
-                if(imageView6.getImage() == blank && gameWon == false){
-                    if(event.getButton() == MouseButton.PRIMARY){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView6.setImage(xImage);
-                            board[1][2] = 'x';
-                        }else{
-                            imageView6.setImage(oImage);
-                            board[1][2] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root6.setOnMouseClicked(event->{
+            if(imageView6.getImage() == blank && gameWon == false){
+                if(event.getButton() == MouseButton.PRIMARY){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView6.setImage(xImage);
+                        board[1][2] = 'x';
+                    }else{
+                        imageView6.setImage(oImage);
+                        board[1][2] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
+            }
+        });
 
-            root7.setOnMouseClicked(event->{
-                if(imageView7.getImage() == blank && gameWon == false){
-                    if(event.getButton() == MouseButton.PRIMARY){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView7.setImage(xImage);
-                            board[2][0] = 'x';
-                        }else{
-                            imageView7.setImage(oImage);
-                            board[2][0] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root7.setOnMouseClicked(event->{
+            if(imageView7.getImage() == blank && gameWon == false){
+                if(event.getButton() == MouseButton.PRIMARY){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView7.setImage(xImage);
+                        board[2][0] = 'x';
+                    }else{
+                        imageView7.setImage(oImage);
+                        board[2][0] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
+            }
+        });
 
-            root8.setOnMouseClicked(event->{
-                if(imageView8.getImage() == blank && gameWon == false){
-                    if(event.getButton() == MouseButton.PRIMARY){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView8.setImage(xImage);
-                            board[2][1] = 'x';
-                        }else{
-                            imageView8.setImage(oImage);
-                            board[2][1] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root8.setOnMouseClicked(event->{
+            if(imageView8.getImage() == blank && gameWon == false){
+                if(event.getButton() == MouseButton.PRIMARY){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView8.setImage(xImage);
+                        board[2][1] = 'x';
+                    }else{
+                        imageView8.setImage(oImage);
+                        board[2][1] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
+            }
+        });
 
-            root9.setOnMouseClicked(event->{
-                if(imageView9.getImage() == blank && gameWon == false){
-                    if(event.getButton() == MouseButton.PRIMARY){
-                        if (turns == 0 || turns % 2 == 0){
-                            imageView9.setImage(xImage);
-                            board[2][2] = 'x';
-                        }else{
-                            imageView9.setImage(oImage);
-                            board[2][2] = 'o';
-                        }
-                        checkWinStatus();
-                        System.out.println(gameWon);
-                        turns ++;
+        root9.setOnMouseClicked(event->{
+            if(imageView9.getImage() == blank && gameWon == false){
+                if(event.getButton() == MouseButton.PRIMARY){
+                    if (turns == 0 || turns % 2 == 0){
+                        imageView9.setImage(xImage);
+                        board[2][2] = 'x';
+                    }else{
+                        imageView9.setImage(oImage);
+                        board[2][2] = 'o';
                     }
+                    checkWinStatus();
+                    turns ++;
                 }
-            });
-
-
-
+            }
+        });
 
     }
 
     //returns scene
     public Scene returnScene(){
         return gameScene;
+    }
+
+    //returns scene
+    public Boolean getWin(){
+        return gameWon;
     }
 
     //checks if either player has gotten 3 characters in a row
