@@ -1,15 +1,24 @@
 package sample;
 
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.geometry.Insets;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
 public class GameBoard extends BorderPane {
     private Scene gameScene;
 
-    public GameBoard(){
+    public GameBoard() throws FileNotFoundException {
 
         // second GridPane
         GridPane testGrid = new GridPane();
@@ -85,6 +94,32 @@ public class GameBoard extends BorderPane {
         testGrid.add(r7, 2,0);
         testGrid.add(r8, 2,1);
         testGrid.add(r9, 2,2);
+
+
+        //image stuff
+        InputStream X = new FileInputStream("resources/X.png");
+        Image xImage = new Image(X);
+        ImageView imageView = new ImageView();
+        imageView.setImage(xImage);
+        imageView.fitWidthProperty().bind(gameScene.widthProperty().divide(3.3));
+        imageView.fitHeightProperty().bind(gameScene.heightProperty().divide(3.3));
+        Group root = new Group(imageView);
+        testGrid.add(root, 0, 0);
+
+        InputStream O = new FileInputStream("resources/o.png");
+        Image oImage = new Image(O);
+        ImageView imageView2 = new ImageView();
+        imageView2.setImage(oImage);
+        imageView2.fitWidthProperty().bind(gameScene.widthProperty().divide(3.3));
+        imageView2.fitHeightProperty().bind(gameScene.heightProperty().divide(3.3));
+        Group root2 = new Group(imageView2);
+        testGrid.add(root2, 1, 2);
+
+
+        Button b1 = new Button();
+        b1.setStyle("-fx-border-color: transparent ");
+
+
 
 
     }
