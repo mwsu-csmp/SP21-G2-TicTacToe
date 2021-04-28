@@ -13,6 +13,7 @@ public class Main extends Application {
 
     private static GameBoard gameBoard;
     private static StartBoard startBoard;
+    private int turns;
 
 
     public static void main(String[] args) {
@@ -21,18 +22,19 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        // sets title
         primaryStage.setTitle("Tic Tac Toe");
 
-
+        // sets up first board
         startBoard = new StartBoard();
         primaryStage.setScene(startBoard.returnScene());
 
         Button btn = startBoard.returnStart();
 
-
+        // sets up gameBoard
         gameBoard = new GameBoard();
 
-
+        // changes from startBoard to gameBoard
         btn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -40,8 +42,6 @@ public class Main extends Application {
 
             }
         });
-
-
 
 
         primaryStage.show();
